@@ -1,6 +1,8 @@
 package com.example.gestionfacturas.models;
 
-public class UserModel {
+import java.io.Serializable;
+
+public class UserModel implements Serializable {
 
     // Properties
     private String user;

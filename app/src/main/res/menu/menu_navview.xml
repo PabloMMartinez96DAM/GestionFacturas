@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_dashBoard"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/menu_dashBoard"
+            ></item>
+
+        <item
+            android:id="@+id/menu_client"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/menu_clients"
+            ></item>
+
+        <item
+            android:id="@+id/menu_invoices"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/menu_invoices"
+            ></item>
+
+        <item
+            android:id="@+id/menu_language"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/menu_language"
+            ></item>
+
+        <item
+            android:id="@+id/menu_exit"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/menu_exit"
+            ></item>
+
+    </group>
+
+</menu>
