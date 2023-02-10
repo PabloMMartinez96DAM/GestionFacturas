@@ -2,4 +2,5 @@
 <resources>
     <item name="txtPass" type="id">Contraseña</item>
     <item name="txtBtnLogin" type="id">Enviar</item>
+    <item name="drawer_layout" type="id">DrawerLayout</item>
 </resources>

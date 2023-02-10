@@ -4,6 +4,8 @@ package com.example.gestionfacturas.db;
 import com.example.gestionfacturas.AppConfig;
 import com.example.gestionfacturas.models.InvoiceModel;
 
+import java.util.ArrayList;
+
 public abstract class IDAOInvoice {
     public abstract InvoiceModel getById(int id);
     public static IDAOInvoice getInstance(){
@@ -23,4 +25,5 @@ public abstract class IDAOInvoice {
     }
 
 
+    public abstract ArrayList<InvoiceModel> getAll();
 }

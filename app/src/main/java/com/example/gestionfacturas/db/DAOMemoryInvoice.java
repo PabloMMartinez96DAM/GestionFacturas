@@ -3,6 +3,8 @@ package com.example.gestionfacturas.db;
 import com.example.gestionfacturas.AppConfig;
 import com.example.gestionfacturas.models.InvoiceModel;
 
+import java.util.ArrayList;
+
 public class DAOMemoryInvoice extends IDAOInvoice{
     @Override
     public InvoiceModel getById(int id) {
@@ -23,6 +25,11 @@ public class DAOMemoryInvoice extends IDAOInvoice{
         }
         return null;
 
+    }
+
+    @Override
+    public ArrayList<InvoiceModel> getAll() {
+        return DataMemory.getInstance().invoiceData;
     }
 
 }

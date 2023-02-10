@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
 
-        app:menu="@menu/menu_naview"
+        app:menu="@+id/menu_naview"
         app:headerLayout="@layout/activity_main_header">
 
         <androidx.appcompat.widget.Toolbar

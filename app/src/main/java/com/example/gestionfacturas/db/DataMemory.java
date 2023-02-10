@@ -5,6 +5,7 @@ import com.example.gestionfacturas.models.InvoiceLineModel;
 import com.example.gestionfacturas.models.InvoiceModel;
 import com.example.gestionfacturas.models.UserModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class DataMemory {
@@ -53,7 +54,7 @@ public class DataMemory {
 
     private void initializeInvoiceData() {
         this.invoiceData = new ArrayList<InvoiceModel>();
-        this.invoiceData.add(new InvoiceModel(1, 1, 100));
+        this.invoiceData.add(new InvoiceModel(1, 1, 100,new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-01")));
         this.invoiceData.add(new InvoiceModel(1, 2, 200));
         this.invoiceData.add(new InvoiceModel(1, 3, 300));
         this.invoiceData.add(new InvoiceModel(1, 4, 400));

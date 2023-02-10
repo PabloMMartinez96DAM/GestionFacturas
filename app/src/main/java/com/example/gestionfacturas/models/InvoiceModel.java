@@ -1,19 +1,23 @@
 package com.example.gestionfacturas.models;
 
+import java.util.Date;
+
 public class InvoiceModel {
 
     // Properties
     private int id;
     private int idInvoice;
     private int amount;
-
+    private Date date;
 
     // Constructor
 
-    public InvoiceModel(int id, int idInvoice, int amount) {
+    public InvoiceModel(int id, int idInvoice, int amount,Date date) {
         this.id = id;
         this.idInvoice = idInvoice;
         this.amount = amount;
+        this.date = date;
+
     }
 
     // Methods
@@ -39,5 +43,13 @@ public class InvoiceModel {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
