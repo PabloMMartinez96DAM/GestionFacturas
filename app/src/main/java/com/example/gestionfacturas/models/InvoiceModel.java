@@ -6,15 +6,15 @@ public class InvoiceModel {
 
     // Properties
     private int id;
-    private int idInvoice;
+    private int idClient;
     private int amount;
     private Date date;
 
     // Constructor
 
-    public InvoiceModel(int id, int idInvoice, int amount,Date date) {
+    public InvoiceModel(int id, int idClient, int amount, Date date) {
         this.id = id;
-        this.idInvoice = idInvoice;
+        this.idClient = idClient;
         this.amount = amount;
         this.date = date;
 
@@ -29,12 +29,12 @@ public class InvoiceModel {
         this.id = id;
     }
 
-    public int getIdInvoice() {
-        return idInvoice;
+    public int getIdClient() {
+        return idClient;
     }
 
-    public void setIdInvoice(int idInvoice) {
-        this.idInvoice = idInvoice;
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
     }
 
     public int getAmount() {

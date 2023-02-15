@@ -1,6 +1,7 @@
 package com.example.gestionfacturas.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,14 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.gestionfacturas.R;
 import com.example.gestionfacturas.db.IDAOClient;
 import com.example.gestionfacturas.db.IDAOInvoiceLine;
+import com.example.gestionfacturas.fragments.DetailInvoiceFragment;
 import com.example.gestionfacturas.models.ClientModel;
 import com.example.gestionfacturas.models.InvoiceModel;
 
@@ -50,21 +55,21 @@ public class FacturasListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup parent) {
+    public View getView(int i, View convertView, ViewGroup parent) {
 
         //Infar el layout del listView
-        if(view == null){
+        if(convertView == null){
             LayoutInflater inflater = LayoutInflater.from(_context);
-            view = inflater.inflate(R.layout.adapter_listview_invoices,parent,false);
+            convertView = inflater.inflate(R.layout.adapter_listview_invoices,parent,false);
         }
 
         InvoiceModel invoice = _items.get(i);
-        TextView lblInvoiceCode = view.findViewById(R.id.lblCodigoFactura);
-        TextView lblDateYear = view.findViewById(R.id.lblDateYear);
-        TextView lblDateDay = view.findViewById(R.id.lblDateDay);
-        TextView lblDateMonth = view.findViewById(R.id.lblDateMonth);
-        TextView lblClient = view.findViewById(R.id.lblCliente);
-        TextView lblTotal = view.findViewById(R.id.lblTotal);
+        TextView lblInvoiceCode = convertView.findViewById(R.id.lblCodigoFactura);
+        TextView lblDateYear = convertView.findViewById(R.id.lblDateYear);
+        TextView lblDateDay = convertView.findViewById(R.id.lblDateDay);
+        TextView lblDateMonth = convertView.findViewById(R.id.lblDateMonth);
+        TextView lblClient = convertView.findViewById(R.id.lblCliente);
+        TextView lblTotal = convertView.findViewById(R.id.lblTotal);
 
 
 
@@ -77,13 +82,34 @@ public class FacturasListViewAdapter extends BaseAdapter {
 
         String dayFormatter = String.format("%02d",day);
         String monthFormatter = new DateFormatSymbols().getShortMonths()[month];
+        ClientModel client = idaoClient.getById(invoice.getId());
+        double total = idaoInvoiceLine.getTotal(invoice.getId());
+
+        lblInvoiceCode.setText(String.valueOf(invoice.getId()));
+        lblDateYear.setText(String.valueOf(year));
+        lblDateMonth.setText(String.valueOf(month));
+        lblDateDay.setText(String.valueOf(day));
+        lblClient.setText(client.getName());
+        lblTotal.setText(String.valueOf(total));
 
 
 
+        convertView.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+            Fragment newFragment = new DetailInvoiceFragment();
+
+            Bundle args = new Bundle();
+            args.putInt("invoiceId", invoice.getId());
+            newFragment.setArguments(args);
 
 
+            FragmentManager fragmentManager = ((FragmentActivity)_context).getSupportFragmentManager();
+            fragmentManager.beginTransaction();
 
+            }
+        });
 
-        return view;
+        return convertView;
     }
 }

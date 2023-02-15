@@ -4,8 +4,10 @@ package com.example.gestionfacturas.db;
 import com.example.gestionfacturas.AppConfig;
 import com.example.gestionfacturas.models.InvoiceLineModel;
 
+import java.util.ArrayList;
+
 public abstract class IDAOInvoiceLine {
-    public abstract InvoiceLineModel getById(int id);
+    public abstract ArrayList<InvoiceLineModel> getByInvoiceId(int id);
     public static IDAOInvoiceLine getInstance(){
 
         if(AppConfig.mode == "MEMORY"){
@@ -21,4 +23,6 @@ public abstract class IDAOInvoiceLine {
         return null;
 
     }
+
+    public abstract double getTotal(int id);
 }

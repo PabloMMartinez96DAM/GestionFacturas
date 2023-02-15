@@ -44,11 +44,11 @@ public class DataMemory {
 
     private void initializeInvoiceLineData() {
         this.invoiceLineData = new ArrayList<InvoiceLineModel>();
-        this.invoiceLineData.add(new InvoiceLineModel(1, 1, 1, "Producto 1"));
-        this.invoiceLineData.add(new InvoiceLineModel(2, 2, 2, "Producto 2"));
-        this.invoiceLineData.add(new InvoiceLineModel(3, 3, 3, "Producto 3"));
-        this.invoiceLineData.add(new InvoiceLineModel(4, 4, 4, "Producto 4"));
-        this.invoiceLineData.add(new InvoiceLineModel(5, 5, 5, "Producto 5"));
+        this.invoiceLineData.add(new InvoiceLineModel(1, 1, 1, "Producto 1",2.51));
+        this.invoiceLineData.add(new InvoiceLineModel(2, 2, 2, "Producto 2",3.42));
+        this.invoiceLineData.add(new InvoiceLineModel(3, 3, 3, "Producto 3",4.33));
+        this.invoiceLineData.add(new InvoiceLineModel(4, 4, 4, "Producto 4",5.24));
+        this.invoiceLineData.add(new InvoiceLineModel(5, 5, 5, "Producto 5",6.15));
 
 
     }

@@ -4,17 +4,22 @@ public class InvoiceLineModel {
 
     // Properties
     private int id;
+
+    //Total de productos
     private double totalAmount;
     private int idClient;
-
     private String product;
 
+    private double price;
+
 // Constructor
-    public InvoiceLineModel(int id, double totalAmount, int idClient, String product) {
+
+    public InvoiceLineModel(int id, double totalAmount, int idClient, String product, double price) {
         this.id = id;
         this.totalAmount = totalAmount;
         this.idClient = idClient;
         this.product = product;
+        this.price = price;
     }
 
     // Getters & Setters
@@ -48,5 +53,13 @@ public class InvoiceLineModel {
 
     public void setProduct(String product) {
         this.product = product;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
