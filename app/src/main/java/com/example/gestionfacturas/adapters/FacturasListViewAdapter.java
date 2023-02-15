@@ -52,10 +52,12 @@ public class FacturasListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup parent) {
 
+        //Infar el layout del listView
         if(view == null){
             LayoutInflater inflater = LayoutInflater.from(_context);
             view = inflater.inflate(R.layout.adapter_listview_invoices,parent,false);
         }
+
         InvoiceModel invoice = _items.get(i);
         TextView lblInvoiceCode = view.findViewById(R.id.lblCodigoFactura);
         TextView lblDateYear = view.findViewById(R.id.lblDateYear);
@@ -75,13 +77,13 @@ public class FacturasListViewAdapter extends BaseAdapter {
 
         String dayFormatter = String.format("%02d",day);
         String monthFormatter = new DateFormatSymbols().getShortMonths()[month];
-        /*ClientModel client = idaoClient*/
 
 
 
 
 
 
-        return null;
+
+        return view;
     }
 }

@@ -5,6 +5,7 @@ import com.example.gestionfacturas.models.InvoiceLineModel;
 import com.example.gestionfacturas.models.InvoiceModel;
 import com.example.gestionfacturas.models.UserModel;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -54,11 +55,16 @@ public class DataMemory {
 
     private void initializeInvoiceData() {
         this.invoiceData = new ArrayList<InvoiceModel>();
-        this.invoiceData.add(new InvoiceModel(1, 1, 100,new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-01")));
-        this.invoiceData.add(new InvoiceModel(1, 2, 200));
-        this.invoiceData.add(new InvoiceModel(1, 3, 300));
-        this.invoiceData.add(new InvoiceModel(1, 4, 400));
-        this.invoiceData.add(new InvoiceModel(1, 5, 500));
+        try {
+            this.invoiceData.add(new InvoiceModel(1, 1, 100,new SimpleDateFormat("yyyy-MM-dd").parse("2023-03-06")));
+            this.invoiceData.add(new InvoiceModel(1, 2, 200,new SimpleDateFormat("yyyy-MM-dd").parse("2023-04-05")));
+            this.invoiceData.add(new InvoiceModel(1, 3, 300,new SimpleDateFormat("yyyy-MM-dd").parse("2023-05-04")));
+            this.invoiceData.add(new InvoiceModel(1, 4, 400,new SimpleDateFormat("yyyy-MM-dd").parse("2023-06-03")));
+            this.invoiceData.add(new InvoiceModel(1, 5, 500,new SimpleDateFormat("yyyy-MM-dd").parse("2023-07-02")));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private void initializeUserData() {
