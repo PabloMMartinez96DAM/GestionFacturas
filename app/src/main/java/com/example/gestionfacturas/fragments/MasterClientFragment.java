@@ -34,7 +34,7 @@ public class MasterClientFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_master_client,container,false);

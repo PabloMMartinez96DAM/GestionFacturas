@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager _fragmentManager;
     private List<Fragment> fragments = new ArrayList<>();
 
-    @SuppressLint("MissingInflatedId")
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
