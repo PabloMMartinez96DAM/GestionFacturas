@@ -31,9 +31,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         _context = this;
 
-        txtUser = findViewById(R.id.txtUser);
-        txtPass = findViewById(R.id.txtPass);
-        btnLogin = findViewById(R.id.txtBtnLogin);
+        txtUser = findViewById(R.id.txtUsuario);
+        txtPass = findViewById(R.id.txtPassword);
+        btnLogin = findViewById(R.id.btnLogin);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {

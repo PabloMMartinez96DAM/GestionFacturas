@@ -59,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Display first fragment
         displayFragment(0);
-        getSupportActionBar().setTitle(R.string.main_dashboard);
+        getSupportActionBar().setTitle(R.string.menu_dashboard);
 
         UserModel user = (UserModel) getIntent().getSerializableExtra("user");
 
         //Get layouts
 
-        _navView = (NavigationView) findViewById(R.id.menu_naview);
+        _navView = (NavigationView) findViewById(R.id.nav_view);
         _navView.setNavigationItemSelectedListener(new NavView_OnNavigationItemSelectedListener());
         _headerLayout = _navView.getHeaderView(0);
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = fragments.get(pos);
 
         FragmentTransaction transaction = _fragmentManager.beginTransaction();
-        transaction.replace(R.id.contentFrame,fragment);
+        transaction.replace(R.id.content_frame,fragment);
         transaction.commit();
 
     }
