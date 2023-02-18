@@ -1,8 +1,9 @@
-package com.example.gestionfacturas.db;
+package com.example.gestionfacturas.persistence;
 
 import com.example.gestionfacturas.models.ClientModel;
 import com.example.gestionfacturas.models.InvoiceLineModel;
 import com.example.gestionfacturas.models.InvoiceModel;
+import com.example.gestionfacturas.models.LanguageModel;
 import com.example.gestionfacturas.models.UserModel;
 
 import java.text.ParseException;
@@ -15,8 +16,10 @@ public class DataMemory {
     public ArrayList<InvoiceModel> invoiceData;
     public ArrayList<InvoiceLineModel> invoiceLineData;
     public ArrayList<UserModel> userData;
+    public ArrayList<LanguageModel> languageData;
 
     private static DataMemory instance;
+
 
     public static DataMemory getInstance() {
         if (instance == null) {
@@ -76,6 +79,12 @@ public class DataMemory {
         this.userData.add(new UserModel("Usuario 3", "prueba03"));
         this.userData.add(new UserModel("Usuario 4", "prueba04"));
         this.userData.add(new UserModel("Usuario 5", "prueba05"));
+    }
+
+    private void inicializarDatosIdiomas() {
+        this.languageData = new ArrayList<LanguageModel>();
+        this.languageData.add(new LanguageModel(1, "es", "español"));
+        this.languageData.add(new LanguageModel(2, "en", "ingles"));
     }
 
 }

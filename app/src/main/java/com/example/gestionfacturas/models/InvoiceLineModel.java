@@ -3,17 +3,30 @@ package com.example.gestionfacturas.models;
 public class InvoiceLineModel {
 
     // Properties
+
+    //Id of the invoice line model
     private int id;
 
-    //Total de productos
+    //price of all products
     private double totalAmount;
+
+    //reference to the client which it belongs
     private int idClient;
+
+    //Name of the product
     private String product;
 
+    //Price of the product
     private double price;
 
-// Constructor
+    // Constructor
 
+
+    //Default constructor
+    public InvoiceLineModel() {
+    }
+
+    //This constructor initialize the properties of this class
     public InvoiceLineModel(int id, double totalAmount, int idClient, String product, double price) {
         this.id = id;
         this.totalAmount = totalAmount;
@@ -61,5 +74,16 @@ public class InvoiceLineModel {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "InvoiceLineModel{" +
+                "id=" + id +
+                ", totalAmount=" + totalAmount +
+                ", idClient=" + idClient +
+                ", product='" + product + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

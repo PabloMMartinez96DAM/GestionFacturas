@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,19 +15,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+
 import com.example.gestionfacturas.R;
-import com.example.gestionfacturas.db.IDAOClient;
-import com.example.gestionfacturas.db.IDAOInvoiceLine;
+import com.example.gestionfacturas.persistence.IDAOClient;
+import com.example.gestionfacturas.persistence.IDAOInvoiceLine;
 import com.example.gestionfacturas.fragments.DetailInvoiceFragment;
 import com.example.gestionfacturas.models.ClientModel;
 import com.example.gestionfacturas.models.InvoiceModel;
 
-import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
-public class FacturasListViewAdapter extends BaseAdapter {
+public class InvoicesListViewAdapter extends BaseAdapter implements Filterable {
 
     private final ArrayList<InvoiceModel> _items;
     private final Context _context;
@@ -33,9 +36,13 @@ public class FacturasListViewAdapter extends BaseAdapter {
     private IDAOClient idaoClient = IDAOClient.getInstance();
     private IDAOInvoiceLine idaoInvoiceLine = IDAOInvoiceLine.getInstance();
 
-    public FacturasListViewAdapter(Context context, @NonNull ArrayList<InvoiceModel> items) {
+    private List<InvoiceModel> _itemsFiltered;
+    //private CustomFilter customFilter;
+
+    public InvoicesListViewAdapter(Context context, @NonNull ArrayList<InvoiceModel> items) {
         _items = items;
         _context = context;
+        //customFilter = new CustomFilter();
     }
 
 
@@ -111,5 +118,10 @@ public class FacturasListViewAdapter extends BaseAdapter {
         });
 
         return convertView;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return null;
     }
 }

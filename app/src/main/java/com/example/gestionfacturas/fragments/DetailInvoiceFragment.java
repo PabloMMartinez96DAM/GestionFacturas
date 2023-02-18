@@ -11,10 +11,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.gestionfacturas.R;
-import com.example.gestionfacturas.adapters.InvoiceLineViewAdapter;
-import com.example.gestionfacturas.db.IDAOClient;
-import com.example.gestionfacturas.db.IDAOInvoice;
-import com.example.gestionfacturas.db.IDAOInvoiceLine;
+import com.example.gestionfacturas.adapters.InvoiceLineListViewAdapter;
+import com.example.gestionfacturas.persistence.IDAOClient;
+import com.example.gestionfacturas.persistence.IDAOInvoice;
+import com.example.gestionfacturas.persistence.IDAOInvoiceLine;
 import com.example.gestionfacturas.models.ClientModel;
 import com.example.gestionfacturas.models.InvoiceLineModel;
 import com.example.gestionfacturas.models.InvoiceModel;
@@ -28,7 +28,7 @@ public class DetailInvoiceFragment extends Fragment {
     private TextView _txtClient;
     private TextView _txtTotal;
     private ArrayList<InvoiceLineModel> _elements;
-    private InvoiceLineViewAdapter _adapter;
+    private InvoiceLineListViewAdapter _adapter;
     private InvoiceModel _invoice;
     private IDAOInvoice _idaoInvoice = IDAOInvoice.getInstance();
     private IDAOInvoiceLine _idaoInvoiceLine = IDAOInvoiceLine.getInstance();
@@ -76,7 +76,7 @@ public class DetailInvoiceFragment extends Fragment {
         _txtClient.setText(client.getName());
 
         _elements = _idaoInvoiceLine.getByInvoiceId(_invoice.getId());
-        _adapter = new InvoiceLineViewAdapter(getContext(),_elements);
+        _adapter = new InvoiceLineListViewAdapter(getContext(),_elements);
         _listView.setAdapter(_adapter);
 
         return view;

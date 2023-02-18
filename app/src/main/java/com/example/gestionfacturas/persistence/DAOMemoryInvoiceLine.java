@@ -1,4 +1,4 @@
-package com.example.gestionfacturas.db;
+package com.example.gestionfacturas.persistence;
 
 import com.example.gestionfacturas.models.InvoiceLineModel;
 
@@ -7,8 +7,14 @@ import java.util.ArrayList;
 public class DAOMemoryInvoiceLine extends IDAOInvoiceLine {
     @Override
     public ArrayList<InvoiceLineModel> getByInvoiceId(int id) {
+        ArrayList<InvoiceLineModel> list = new ArrayList<InvoiceLineModel>();
 
-     return null;
+        for (InvoiceLineModel invoiceLine : DataMemory.getInstance().invoiceLineData) {
+            if (invoiceLine.getId() == id) {
+                list.add(invoiceLine);
+            }
+        }
+        return list;
     }
 
     @Override

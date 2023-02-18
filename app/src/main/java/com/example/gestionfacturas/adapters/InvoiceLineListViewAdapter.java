@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -14,12 +13,12 @@ import com.example.gestionfacturas.models.InvoiceLineModel;
 
 import java.util.ArrayList;
 
-public class InvoiceLineViewAdapter extends BaseAdapter {
+public class InvoiceLineListViewAdapter extends BaseAdapter {
 
     private final ArrayList<InvoiceLineModel> _items;
     private final Context _context;
 
-    public InvoiceLineViewAdapter(Context context, @NonNull ArrayList<InvoiceLineModel> items) {
+    public InvoiceLineListViewAdapter(Context context, @NonNull ArrayList<InvoiceLineModel> items) {
         _context = context;
         _items = items;
     }

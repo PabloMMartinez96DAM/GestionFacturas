@@ -1,4 +1,4 @@
-package com.example.gestionfacturas.db;
+package com.example.gestionfacturas.persistence;
 
 import com.example.gestionfacturas.models.UserModel;
 

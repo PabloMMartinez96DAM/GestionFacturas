@@ -1,4 +1,4 @@
-package com.example.gestionfacturas;
+package com.example.gestionfacturas.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import com.example.gestionfacturas.R;
 import com.example.gestionfacturas.fragments.DashboardFragment;
 import com.example.gestionfacturas.fragments.LanguageFragment;
 import com.example.gestionfacturas.fragments.MasterClientFragment;

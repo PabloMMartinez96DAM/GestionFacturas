@@ -1,8 +1,7 @@
-package com.example.gestionfacturas;
+package com.example.gestionfacturas.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.gestionfacturas.db.IDAOUser;
+import com.example.gestionfacturas.R;
+import com.example.gestionfacturas.persistence.IDAOUser;
 import com.example.gestionfacturas.models.UserModel;
 
 public class LoginActivity extends AppCompatActivity {

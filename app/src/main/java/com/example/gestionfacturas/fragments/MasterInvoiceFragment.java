@@ -2,59 +2,64 @@ package com.example.gestionfacturas.fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.gestionfacturas.R;
+import com.example.gestionfacturas.adapters.InvoicesListViewAdapter;
+import com.example.gestionfacturas.models.InvoiceModel;
+import com.example.gestionfacturas.persistence.IDAOInvoice;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MasterInvoiceFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class MasterInvoiceFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FloatingActionButton _fabInsertar;
+    private ListView _listView;
+    private ArrayList<InvoiceModel> _elements;
+    private InvoicesListViewAdapter _adapter;
+    private IDAOInvoice idaoInvoice = IDAOInvoice.getInstance();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
+    //Constructor
     public MasterInvoiceFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MasterInvoiceFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static MasterInvoiceFragment newInstance(String param1, String param2) {
         MasterInvoiceFragment fragment = new MasterInvoiceFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        //Get the reference of the toolbar from the activityMain
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+
+        //Configure the search logic
+        SearchView searchView = toolbar.findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                _adapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
     @Override

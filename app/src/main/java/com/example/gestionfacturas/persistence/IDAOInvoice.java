@@ -1,17 +1,14 @@
-package com.example.gestionfacturas.db;
+package com.example.gestionfacturas.persistence;
 
-import com.example.gestionfacturas.AppConfig;
+
 import com.example.gestionfacturas.models.InvoiceModel;
 
 import java.util.ArrayList;
 
-public class DAOMemoryInvoice extends IDAOInvoice{
-    @Override
-    public InvoiceModel getById(int id) {
-        return null;
-    }
-
-    public static DAOMemoryInvoice getInstance(){
+public abstract class IDAOInvoice {
+    public abstract InvoiceModel getById(int id);
+    public abstract ArrayList<InvoiceModel> search(String text);
+    public static IDAOInvoice getInstance(){
 
         if(AppConfig.mode == "MEMORY"){
             return new DAOMemoryInvoice();
@@ -27,9 +24,6 @@ public class DAOMemoryInvoice extends IDAOInvoice{
 
     }
 
-    @Override
-    public ArrayList<InvoiceModel> getAll() {
-        return DataMemory.getInstance().invoiceData;
-    }
 
+    public abstract ArrayList<InvoiceModel> getAll();
 }

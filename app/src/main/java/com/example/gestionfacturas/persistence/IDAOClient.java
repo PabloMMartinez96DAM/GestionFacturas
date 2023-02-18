@@ -1,6 +1,5 @@
-package com.example.gestionfacturas.db;
+package com.example.gestionfacturas.persistence;
 
-import com.example.gestionfacturas.AppConfig;
 import com.example.gestionfacturas.models.ClientModel;
 
 public abstract class IDAOClient {
